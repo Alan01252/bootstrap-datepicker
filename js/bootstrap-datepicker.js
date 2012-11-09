@@ -208,7 +208,7 @@
 			var zIndex = parseInt(this.element.parents().filter(function() {
 							return $(this).css('z-index') != 'auto';
 						}).first().css('z-index'))+10;
-			var offset = this.component ? this.component.offset() : this.element.offset();
+			var offset = this.element.offset();
 			this.picker.css({
 				top: offset.top + this.height,
 				left: offset.left,
@@ -284,7 +284,7 @@
 				if (prevMonth.getUTCFullYear() < year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() < month)) {
 					clsName += ' old';
 				} else if (prevMonth.getUTCFullYear() > year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() > month)) {
-					clsName += ' new';
+					clsName += ' new disabled';
 				}
 				// Compare internal UTC date with local today, not UTC today
 				if (this.todayHighlight &&
